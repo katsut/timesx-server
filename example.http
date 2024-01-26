@@ -1,0 +1,9 @@
+
+###
+POST https://gdctbbtiul.execute-api.ap-northeast-1.amazonaws.com/prod/api HTTP/1.1
+
+content-type: application/json
+
+{
+    "message": "まず今日の天気を調べるっと。だいたいGoogleので天気って検索した結果ページに出てるので一旦見る。よくわからんので１時間天気を見に行く。晴れか。あ、これ福島やった。福岡も晴れか。２３度。出かけられる。オフィス行くか。"
+}

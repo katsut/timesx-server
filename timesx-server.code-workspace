@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.envFile": "${workspaceFolder}/.env",
+		"python.analysis.autoImportCompletions": true,
+		"python.analysis.typeCheckingMode": "basic",
+		"python.analysis.inlayHints.functionReturnTypes": true,
+		"python.analysis.inlayHints.variableTypes": true,
+		"[python]": {
+			"editor.formatOnSave": true,
+			"editor.defaultFormatter": "ms-python.black-formatter",
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": "explicit",
+				"source.fixAll": "explicit"
+			}
+		},
+		"python.testing.pytestEnabled": true,
+		"python.testing.pytestPath": "poetry run pytest",
+		"python.defaultInterpreterPath": ".venv/bin/python"
+	}
+}

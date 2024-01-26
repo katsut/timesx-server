@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "timesx-server"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+packages = [
+    { include = "timesx", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+openai = "^1.10.0"
+aws-lambda-powertools = "^2.32.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+black = "^24.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
