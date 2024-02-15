@@ -13,5 +13,5 @@ tsc.out
 *.lockb
 build/
 
-
+**/logs/*.log
 .venv/
