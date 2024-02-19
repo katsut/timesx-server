@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  icecast2:
+    image: pltnk/icecast2
+    platform: linux/amd64
+    container_name: icecast
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./icecast.xml:/etc/icecast
+      - ./logs:/var/log/icecast2
+      - /etc/localtime:/etc/localtime:ro
+
+  liquidsoap:
+    image: pltnk/liquidsoap
+    platform: linux/amd64
+    ports:
+      - '8002:8002'
+
+    container_name: liquidsoap
+    restart: always
+    volumes:
+      - ./icecast.xml:/etc/icecast
+      - ./logs:/var/log/liquidsoap
+      - ./data:/var/data/liquidsoap
+      - ./scripts/script.liq:/etc/liquidsoap/script.liq
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      ICECAST_SOURCE_PASSWORD: aaaa
