@@ -1,7 +1,10 @@
 from openai import OpenAI
 import os
 from aws_lambda_powertools.event_handler import APIGatewayRestResolver
+from aws_lambda_powertools import Logger
 import requests
+
+logger = Logger()
 
 client = OpenAI()
 app = APIGatewayRestResolver()
@@ -26,7 +29,7 @@ def post_typetalk_message(message):
 def receiveText():
     # Extract the text from the API request
 
-    print(app.current_event)
+    logger.info(app.current_event)
     text = app.current_event.json_body["message"]
 
     completion = client.chat.completions.create(
@@ -34,12 +37,12 @@ def receiveText():
         messages=[
             {
                 "role": "system",
-                "content": syntem_content,
+                "content": system_content,
             },
             {"role": "user", "content": text},
         ],
     )
-    print(completion.choices)
+    logger.info(completion.choices)
 
     post_typetalk_message(completion.choices[0].message.content)
 
